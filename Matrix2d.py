@@ -10,8 +10,8 @@ class Matrix2d(object):
     @staticmethod
     def __create(m, n):
         response = List()
-        row = List(0 for _ in range(m))
-        [response.append(row.copy()) for _ in range(n)]
+        row = List(0 for _ in range(n))
+        [response.append(row.copy()) for _ in range(m)]
         return response
 
     # def __setattr__(self, name, value):

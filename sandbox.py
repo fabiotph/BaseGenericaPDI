@@ -2,7 +2,7 @@ from Matrix2d import Matrix2d
 from Tokenizer import Tokenizer
 from FileHandler import FileHandler
 
-handle = FileHandler("save.ppm")
+handle = FileHandler("a.txt")
 file = Tokenizer()
 file.tokenize(fileHandler=handle)
 print(file.typeMatrix)

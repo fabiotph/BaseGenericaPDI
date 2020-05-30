@@ -9,14 +9,31 @@ class FileHandler:
             return None
         return response
 
-    def save(self, matrix2d, typeMatrix, fileName="result", grayScaleValue=255):
+    def save(self, matrix, typeMatrix, fileName="result", grayScaleValue=255):
         file = open(file=fileName, mode="w")
         file.write(typeMatrix+"\n")
         file.write("#Created by Fabio Tondin\n")
-        file.write(str(matrix2d.m)+" "+str(matrix2d.n)+"\n")
+        file.write(str(matrix.m)+" "+str(matrix.n)+"\n")
+
+        if type(matrix).__name__ == 'Matrix2d':
+            self.__saveMatrix2d(matrix, typeMatrix, file,
+                                grayScaleValue=grayScaleValue)
+        elif type(matrix).__name__ == 'Matrix3d':
+            self.__saveMatrix3d(matrix, typeMatrix,
+                                file)
+
+    def __saveMatrix2d(self, matrix2d, typeMatrix, file, grayScaleValue=255):
         if(typeMatrix == "P2"):
             file.write(str(grayScaleValue)+"\n")
         for i in range(matrix2d.m):
             for j in range(matrix2d.n):
                 file.write(str(matrix2d.data[i][j])+" ")
+            file.write("\n")
+
+    def __saveMatrix3d(self, matrix3d, typeMatrix, file):
+        for i in range(matrix3d.m):
+            for j in range(matrix3d.n):
+                file.write(str(matrix3d.r.data[i][j])+" ")
+                file.write(str(matrix3d.g.data[i][j])+" ")
+                file.write(str(matrix3d.b.data[i][j])+" ")
             file.write("\n")

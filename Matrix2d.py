@@ -21,16 +21,5 @@ class Matrix2d(object):
             row = int(i / self.n)
             self.data[row][col] = dataValue[i]
 
-        # def __setattr__(self, name, value):
-        #     if name is not "data":
-        #         # print(name)
-        #         self.__dict__[name] = value + 20
-        #     else:
-        #         # print(name)
-        #         self.__dict__[name] = value
-
-        # def __getattribute__(self, name):
-        #     return object.__getattribute__(self, name)
-
     def __str__(self):
         return type(self).__name__ + "\n"+str(self.m) + "rows " + str(self.n)+"cols " + "\n" + str(self.data.__str__())

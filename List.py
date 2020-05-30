@@ -15,3 +15,6 @@ class List(list):
 
     def copy(self):
         return copy(self)
+
+    def __str__(self):
+        return super().__str__().replace('],', '],\n')

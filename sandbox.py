@@ -1,7 +1,7 @@
-from Matrix2d import Matrix2d
-from Matrix3d import Matrix3d
-from Tokenizer import Tokenizer
-from FileHandler import FileHandler
+from src.FileHandler import FileHandler
+from src.Tokenizer import Tokenizer
+from src.Matrix3d import Matrix3d
+from src.Matrix2d import Matrix2d
 
 handle = FileHandler("b.pgm")
 file = Tokenizer()
@@ -15,11 +15,6 @@ handle3 = FileHandler("b.pgm")
 file3 = Tokenizer()
 file3.tokenize(fileHandler=handle3)
 
-# matrix = Matrix3d(file.row, file.col)
-# print(matrix)
-# matrix.set_data(file.data)
-# print(matrix)
-# handle.saveMatrix3dToMatrix2d(matrix, file.typeMatrix, fileName="save2.ppm")
 
 matrixR = Matrix2d(file.row, file.col)
 matrixG = Matrix2d(file.row, file.col)

@@ -1,4 +1,4 @@
-from Matrix3d import Matrix3d
+from src.Matrix3d import Matrix3d
 from pathlib import Path
 
 path = Path("./img/")

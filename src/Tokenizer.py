@@ -1,4 +1,4 @@
-from FileHandler import FileHandler
+from src.FileHandler import FileHandler
 
 
 class Tokenizer:

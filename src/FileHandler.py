@@ -1,10 +1,13 @@
 from Matrix3d import Matrix3d
+from pathlib import Path
+
+path = Path("./img/")
 
 
 class FileHandler:
     def __init__(self, fileName):
         super().__init__()
-        self.file = open(file=fileName, mode="r")
+        self.file = open(file=path/fileName, mode="r")
 
     def read_next_line(self):
         response = self.file.readline()
@@ -13,7 +16,7 @@ class FileHandler:
         return response
 
     def save(self, matrix, typeMatrix, fileName="result.ppm", grayScaleValue=255):
-        file = open(file=fileName, mode="w")
+        file = open(file=path/fileName, mode="w")
         file.write(typeMatrix+"\n")
         file.write("#Created by Fabio Tondin\n")
         file.write(str(matrix.m)+" "+str(matrix.n)+"\n")

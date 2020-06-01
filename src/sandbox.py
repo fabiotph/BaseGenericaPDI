@@ -3,15 +3,15 @@ from Matrix3d import Matrix3d
 from Tokenizer import Tokenizer
 from FileHandler import FileHandler
 
-handle = FileHandler("b.txt")
+handle = FileHandler("b.pgm")
 file = Tokenizer()
 file.tokenize(fileHandler=handle)
 
-handle2 = FileHandler("b.txt")
+handle2 = FileHandler("b.pgm")
 file2 = Tokenizer()
 file2.tokenize(fileHandler=handle2)
 
-handle3 = FileHandler("b.txt")
+handle3 = FileHandler("b.pgm")
 file3 = Tokenizer()
 file3.tokenize(fileHandler=handle3)
 

@@ -33,7 +33,6 @@ class Tokenizer:
         if self.n_token > limit:
             self.data.append(int(value))
         else:
-            print(value)
             if self.n_token == 0:
                 self.typeMatrix = value
             elif self.n_token == 1:

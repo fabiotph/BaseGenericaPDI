@@ -1,3 +1,6 @@
+from Matrix3d import Matrix3d
+
+
 class FileHandler:
     def __init__(self, fileName):
         super().__init__()
@@ -9,7 +12,7 @@ class FileHandler:
             return None
         return response
 
-    def save(self, matrix, typeMatrix, fileName="result", grayScaleValue=255):
+    def save(self, matrix, typeMatrix, fileName="result.ppm", grayScaleValue=255):
         file = open(file=fileName, mode="w")
         file.write(typeMatrix+"\n")
         file.write("#Created by Fabio Tondin\n")
@@ -37,3 +40,17 @@ class FileHandler:
                 file.write(str(matrix3d.g.data[i][j])+" ")
                 file.write(str(matrix3d.b.data[i][j])+" ")
             file.write("\n")
+
+    def saveMatrix3dToMatrix2d(self, matrix3d, typeMatrix, fileName="result.pgm"):
+        fileName = fileName.split(".")
+        fileNameR = fileName[0]+"R"+fileName[len(fileName)-1]
+        fileNameG = fileName[0]+"G"+fileName[len(fileName)-1]
+        fileNameB = fileName[0]+"B"+fileName[len(fileName)-1]
+
+        self.save(matrix3d.r, "P2", fileNameR)
+        self.save(matrix3d.g, "P2", fileNameG)
+        self.save(matrix3d.b, "P2", fileNameB)
+
+    def saveMatrix2dToMatrix3d(self, matrix2dR, matrix2dG, matrix2dB, fileName="result.ppm"):
+        matrix3d = Matrix3d(matrix2dR, matrix2dG, matrix2dB)
+        self.save(matrix3d, "P3", fileName)
